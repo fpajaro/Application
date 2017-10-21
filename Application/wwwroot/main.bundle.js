@@ -61,13 +61,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var AppComponent = (function () {
-    function AppComponent(httpService) {
-        this.httpService = httpService;
+    function AppComponent(http) {
+        this.http = http;
         this.values = [];
     }
     AppComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.httpService.get('/api/values').subscribe(function (values) {
+        this.http.get('/api/values').subscribe(function (values) {
             _this.values = values.json();
         });
     };
