@@ -1,14 +1,11 @@
 ﻿<Properties StartupConfiguration="{F15ADF70-AA89-4DF7-A861-D15C9EA8B61F}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Application/src/index.html">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Application Status">
     <Files>
-      <File FileName="Application/Startup.cs" Line="14" Column="101" />
-      <File FileName="Application/Program.cs" Line="8" Column="42" />
-      <File FileName="Application/Controllers/ValuesController.cs" Line="15" Column="50" />
-      <File FileName="Application/src/app/app.module.ts" Line="16" Column="15" />
-      <File FileName="Application/.angular-cli.json" Line="9" Column="25" />
-      <File FileName="Application/src/app/app.component.ts" Line="17" Column="53" />
-      <File FileName="Application/src/app/app.component.html" Line="4" Column="6" />
-      <File FileName="Application/src/index.html" Line="1" Column="1" />
+      <File FileName="Application/Models/ApplicationContext.cs" Line="18" Column="86" />
+      <File FileName="Application/Startup.cs" Line="18" Column="9" />
+      <File FileName="Application/config.json" Line="3" Column="86" />
+      <File FileName="Application/Application.csproj" Line="1" Column="1" />
+      <File FileName="Application Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

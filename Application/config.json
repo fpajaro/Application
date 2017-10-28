@@ -1,0 +1,5 @@
+﻿{
+  "ConnectionStrings":{
+    "AppContextConnection": "Server=localhost;database=application;uid=root;pwd=root;"
+  }
+}
