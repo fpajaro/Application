@@ -5,6 +5,7 @@
       <File FileName="Application/Startup.cs" Line="18" Column="9" />
       <File FileName="Application/config.json" Line="3" Column="86" />
       <File FileName="Application/Application.csproj" Line="1" Column="1" />
+      <File FileName="Application/Migrations/20171028011532_Database.cs" Line="1" Column="1" />
       <File FileName="Application Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>
