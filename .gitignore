@@ -1,9 +1,11 @@
 Application.userprefs
 Application.csproj.user
 .DS_Store
+package-lock.json
 Migrations/
-.vscode
+.vscode/
 bin/
 obj/
-wwwroot
+wwwroot/
 node_modules/
+Properties/
