@@ -6,9 +6,9 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { SchedulerComponent } from './components/scheduler.component';
+import { SchedulerComponent } from './events/components/scheduler.component';
 
-import { EventService } from './services/event.service'
+import { EventService } from './events/services/event.service'
 
 @NgModule({
   declarations: [

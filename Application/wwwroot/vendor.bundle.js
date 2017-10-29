@@ -1618,6 +1618,15 @@ function flattenUnsubscriptionErrors(errors) {
 
 /***/ }),
 
+/***/ "../../../../rxjs/add/operator/toPromise.js":
+/***/ (function(module, exports) {
+
+// HACK: does nothing, because `toPromise` now lives on the `Observable` itself.
+// leaving this module here to prevent breakage.
+//# sourceMappingURL=toPromise.js.map
+
+/***/ }),
+
 /***/ "../../../../rxjs/observable/ArrayObservable.js":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -57094,17 +57103,17 @@ ReactiveFormsModule.ctorParameters = function () { return []; };
 /* unused harmony export XHRBackend */
 /* unused harmony export XHRConnection */
 /* unused harmony export BaseRequestOptions */
-/* unused harmony export RequestOptions */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return RequestOptions; });
 /* unused harmony export BaseResponseOptions */
 /* unused harmony export ResponseOptions */
 /* unused harmony export ReadyState */
 /* unused harmony export RequestMethod */
 /* unused harmony export ResponseContentType */
 /* unused harmony export ResponseType */
-/* unused harmony export Headers */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Http; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Headers; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return Http; });
 /* unused harmony export Jsonp */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return HttpModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return HttpModule; });
 /* unused harmony export JsonpModule */
 /* unused harmony export Connection */
 /* unused harmony export ConnectionBackend */

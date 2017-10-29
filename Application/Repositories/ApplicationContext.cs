@@ -1,8 +1,9 @@
 ﻿using System;
+using Application.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
-namespace Application.Models
+namespace Application.Repositories
 {
     public class ApplicationContext : DbContext
     {

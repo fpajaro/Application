@@ -79,7 +79,7 @@ AppComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../src/app/app.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
 ], AppComponent);
 
 var _a;
@@ -97,8 +97,8 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_scheduler_component__ = __webpack_require__("../../../../../src/app/components/scheduler.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_event_service__ = __webpack_require__("../../../../../src/app/services/event.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__events_components_scheduler_component__ = __webpack_require__("../../../../../src/app/events/components/scheduler.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__events_services_event_service__ = __webpack_require__("../../../../../src/app/events/services/event.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -121,15 +121,15 @@ AppModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["L" /* NgModule */])({
         declarations: [
             __WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_5__components_scheduler_component__["a" /* SchedulerComponent */]
+            __WEBPACK_IMPORTED_MODULE_5__events_components_scheduler_component__["a" /* SchedulerComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
-            __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* HttpModule */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_http__["c" /* HttpModule */],
         ],
         providers: [
-            __WEBPACK_IMPORTED_MODULE_6__services_event_service__["a" /* EventService */]
+            __WEBPACK_IMPORTED_MODULE_6__events_services_event_service__["a" /* EventService */]
         ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]]
     })
@@ -139,7 +139,7 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ "../../../../../src/app/components/scheduler.component.css":
+/***/ "../../../../../src/app/events/components/scheduler.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -157,14 +157,14 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/app/components/scheduler.component.html":
+/***/ "../../../../../src/app/events/components/scheduler.component.html":
 /***/ (function(module, exports) {
 
 module.exports = "<div #scheduler_here class=\"dhx_cal_container\" style=\"width: 100%; height:100vh\">\n    <div class=\"dhx_cal_navline\">\n        <div class=\"dhx_cal_prev_button\">&nbsp;</div>\n        <div class=\"dhx_cal_next_button\">&nbsp;</div>\n        <div class=\"dhx_cal_today_button\"></div>\n        <div class=\"dhx_cal_date\"></div>\n        <div class=\"dhx_cal_tab\" name=\"day_tab\"></div>\n        <div class=\"dhx_cal_tab\" name=\"week_tab\"></div>\n        <div class=\"dhx_cal_tab\" name=\"month_tab\"></div>\n    </div>\n    <div class=\"dhx_cal_header\"></div>\n    <div class=\"dhx_cal_data\"></div>\n</div>"
 
 /***/ }),
 
-/***/ "../../../../../src/app/components/scheduler.component.ts":
+/***/ "../../../../../src/app/events/components/scheduler.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -172,7 +172,7 @@ module.exports = "<div #scheduler_here class=\"dhx_cal_container\" style=\"width
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_dhtmlx_scheduler__ = __webpack_require__("../../../../dhtmlx-scheduler/codebase/dhtmlxscheduler.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_dhtmlx_scheduler___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_dhtmlx_scheduler__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_event_service__ = __webpack_require__("../../../../../src/app/services/event.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_event_service__ = __webpack_require__("../../../../../src/app/events/services/event.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -190,12 +190,44 @@ var SchedulerComponent = (function () {
         this.eventService = eventService;
     }
     SchedulerComponent.prototype.ngOnInit = function () {
+        var _this = this;
         scheduler.config.xml_date = '%Y-%m-%d %H:%i';
         scheduler.init(this.schedulerContainer.nativeElement, new Date());
+        scheduler.attachEvent('onEventAdded', function (id, ev) {
+            _this.eventService.insert(_this.serializeEvent(ev, true))
+                .then(function (response) {
+                if (response.id != id) {
+                    scheduler.changeEventId(id, response.id);
+                }
+            });
+        });
+        scheduler.attachEvent('onEventChanged', function (id, ev) {
+            _this.eventService.update(_this.serializeEvent(ev));
+        });
+        scheduler.attachEvent('onEventDeleted', function (id) {
+            _this.eventService.remove(id);
+        });
         this.eventService.get()
             .then(function (data) {
             scheduler.parse(data, 'json');
         });
+    };
+    SchedulerComponent.prototype.serializeEvent = function (data, insert) {
+        if (insert === void 0) { insert = false; }
+        var result = {};
+        for (var i in data) {
+            if (i.charAt(0) == '$' || i.charAt(0) == '_')
+                continue;
+            if (insert && i == 'id')
+                continue;
+            if (data[i] instanceof Date) {
+                result[i] = scheduler.templates.xml_format(data[i]);
+            }
+            else {
+                result[i] = data[i];
+            }
+        }
+        return result;
     };
     return SchedulerComponent;
 }());
@@ -207,8 +239,8 @@ SchedulerComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_16" /* ViewEncapsulation */].None,
         selector: 'scheduler',
-        styles: [__webpack_require__("../../../../../src/app/components/scheduler.component.css")],
-        template: __webpack_require__("../../../../../src/app/components/scheduler.component.html")
+        styles: [__webpack_require__("../../../../../src/app/events/components/scheduler.component.css")],
+        template: __webpack_require__("../../../../../src/app/events/components/scheduler.component.html")
     }),
     __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_event_service__["a" /* EventService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_event_service__["a" /* EventService */]) === "function" && _b || Object])
 ], SchedulerComponent);
@@ -218,35 +250,88 @@ var _a, _b;
 
 /***/ }),
 
-/***/ "../../../../../src/app/services/event.service.ts":
+/***/ "../../../../../src/app/events/services/event.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EventService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_helper__ = __webpack_require__("../../../../../src/app/events/services/service-helper.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise__ = __webpack_require__("../../../../rxjs/add/operator/toPromise.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
 
 var EventService = (function () {
-    function EventService() {
+    function EventService(http) {
+        this.http = http;
+        this.eventUrl = 'api/events';
     }
     EventService.prototype.get = function () {
-        return Promise.resolve([
-            { id: 1, start_date: "2017-10-16 00:00", end_date: "2017-10-16 13:00", text: "Event 1" },
-            { id: 2, start_date: "2017-10-17 00:00", end_date: "2017-10-17 13:00", text: "Event 2" }
-        ]);
+        return this.http.get(this.eventUrl)
+            .toPromise()
+            .then(__WEBPACK_IMPORTED_MODULE_2__service_helper__["a" /* ExtractData */])
+            .catch(__WEBPACK_IMPORTED_MODULE_2__service_helper__["b" /* HandleError */]);
+    };
+    EventService.prototype.insert = function (event) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' });
+        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: headers });
+        return this.http.post(this.eventUrl, JSON.stringify(event), options)
+            .toPromise()
+            .then(__WEBPACK_IMPORTED_MODULE_2__service_helper__["a" /* ExtractData */])
+            .catch(__WEBPACK_IMPORTED_MODULE_2__service_helper__["b" /* HandleError */]);
+    };
+    EventService.prototype.update = function (event) {
+        return this.http.put('${this.eventUrl}/${event.id}', JSON.stringify(event))
+            .toPromise()
+            .then(__WEBPACK_IMPORTED_MODULE_2__service_helper__["a" /* ExtractData */])
+            .catch(__WEBPACK_IMPORTED_MODULE_2__service_helper__["b" /* HandleError */]);
+    };
+    EventService.prototype.remove = function (id) {
+        return this.http.delete('${this.eventUrl}/${id}')
+            .toPromise()
+            .then(__WEBPACK_IMPORTED_MODULE_2__service_helper__["a" /* ExtractData */])
+            .catch(__WEBPACK_IMPORTED_MODULE_2__service_helper__["b" /* HandleError */]);
     };
     return EventService;
 }());
 EventService = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])()
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
 ], EventService);
 
+var _a;
 //# sourceMappingURL=event.service.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/events/services/service-helper.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = ExtractData;
+/* harmony export (immutable) */ __webpack_exports__["b"] = HandleError;
+function ExtractData(res) {
+    var body = res.json();
+    return body && body.data ? body.data : {};
+}
+function HandleError(error) {
+    console.log(error);
+    return Promise.reject(error);
+}
+//# sourceMappingURL=service-helper.js.map
 
 /***/ }),
 

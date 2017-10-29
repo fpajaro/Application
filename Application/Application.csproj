@@ -8,6 +8,11 @@
     <Folder Include="wwwroot\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+    <Folder Include="src\app\events\" />
+    <Folder Include="src\app\events\components\" />
+    <Folder Include="src\app\events\services\" />
+    <Folder Include="src\app\events\models\" />
+    <Folder Include="Repositories\" />
   </ItemGroup>
 
   <ItemGroup>
