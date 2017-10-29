@@ -1,9 +1,9 @@
 ﻿<Properties StartupConfiguration="{F15ADF70-AA89-4DF7-A861-D15C9EA8B61F}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Application Status">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Application/Application.csproj">
     <Files>
       <File FileName="Application/Controllers/EventsController.cs" Line="40" Column="29" />
       <File FileName="Application/Models/Event.cs" Line="17" Column="28" />
-      <File FileName="Application Status" />
+      <File FileName="Application/Application.csproj" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
