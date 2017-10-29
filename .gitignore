@@ -1,2 +1,4 @@
 Application.userprefs
 .DS_Store
+Migrations/
+.vscode
