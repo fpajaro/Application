@@ -1,4 +1,5 @@
 Application.userprefs
+Application.csproj.user
 .DS_Store
 Migrations/
 .vscode
