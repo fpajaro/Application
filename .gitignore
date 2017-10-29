@@ -4,3 +4,4 @@ Migrations/
 .vscode
 bin/
 obj/
+wwwroot
