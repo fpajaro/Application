@@ -4,8 +4,10 @@ Application.csproj.user
 package-lock.json
 Migrations/
 .vscode/
+.vs/
 bin/
 obj/
 wwwroot/
 node_modules/
 Properties/
+dist/
